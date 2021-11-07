@@ -43,6 +43,15 @@ const Home = () => {
       setAllSurvey(result.data);
     };
     getData();
+    const getCount = async () => {
+      const result = await axios({
+        method: "post",
+        url: "http://localhost:8080/api/submission/submission-count",
+        data: { surveyId: surveyId },
+      });
+      console.log(result);
+    };
+    getCount();
   }, []);
   const handleLogout = () => {};
   return (

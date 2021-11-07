@@ -21,8 +21,33 @@ const createSurvey = async (req, res) => {
 
 const getSurvey = async (req, res) => {
   try {
-    const { gender, age } = req.body;
+    let { gender, age } = req.body;
     let filter = {};
+    if (gender == "m") {
+      gender = "M";
+    }
+    if (gender == "f") {
+      gender = "F";
+    }
+    if (age > 0 && age <= 10) {
+      age = 10;
+    }
+    if (age > 10 && age <= 20) {
+      age = 20;
+    }
+    if (age > 20 && age <= 30) {
+      age = 30;
+    }
+    if (age > 30 && age <= 40) {
+      age = 40;
+    }
+    if (age > 40 && age <= 50) {
+      age = 50;
+    }
+    if (age > 50 && age <= 60) {
+      age = 60;
+    }
+    console.log(gender, age);
 
     const result = await Survey.find({
       $or: [{ forUserValue: gender }, { forUserValue: age }],

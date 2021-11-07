@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Survey from "./pages/Survey";
 import LandingPage from "./pages/LandingPage";
+import RespondantHomePage from "./pages/RespondantHomePage";
+import FillSurvey from "./pages/FillSurvey";
 
 function App() {
   return (
@@ -12,7 +14,8 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={LandingPage} />
-
+          <Route path="/respondant-home-page" component={RespondantHomePage} />
+          <Route path="/fill-survey" component={FillSurvey} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/home" component={Home} />

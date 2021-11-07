@@ -33,6 +33,8 @@ function Login() {
       });
 
       if (result.data.status == 0) {
+        localStorage.setItem("userGender", result.data.user.gender);
+        localStorage.setItem("userAge", result.data.user.age);
         localStorage.setItem("userId", result.data.user._id);
         localStorage.setItem("userType", result.data.user.userType);
         if (result.data.user.userType === "C") {
