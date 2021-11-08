@@ -8,12 +8,13 @@ const Title = styled.p`
   font-weight: 600;
   font-size: 18px;
 `;
-const SurveyCard = styled.div`
+export const SurveyCard = styled.div`
   width: 200px;
   height: auto;
   padding: 20px;
   box-shadow: 10px 10px 5px #aaaaaa;
   border-radius: 10px;
+  cursor: pointer;
 `;
 const Response = styled.p`
   font-size: 14px;

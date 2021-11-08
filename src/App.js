@@ -7,6 +7,7 @@ import Survey from "./pages/Survey";
 import LandingPage from "./pages/LandingPage";
 import RespondantHomePage from "./pages/RespondantHomePage";
 import FillSurvey from "./pages/FillSurvey";
+import SubmissionPage from "./pages/SubmissionPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/fill-survey" component={FillSurvey} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
+          <Route path="/submission" component={SubmissionPage} />
           <Route path="/home" component={Home} />
           <Route path="/create-survey" component={Survey} />
         </Switch>

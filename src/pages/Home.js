@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
+
+import { SurveyCard } from "./RespondantHomePage";
 
 const Container = styled.div`
   display: flex;
@@ -31,6 +34,7 @@ const StyledLink = styled(Link)`
 
 const Home = () => {
   const [allSurvey, setAllSurvey] = useState([]);
+  const history = useHistory();
   useEffect(() => {
     const getData = async () => {
       const userId = localStorage.getItem("userId");
@@ -43,15 +47,15 @@ const Home = () => {
       setAllSurvey(result.data);
     };
     getData();
-    const getCount = async () => {
-      const result = await axios({
-        method: "post",
-        url: "http://localhost:8080/api/submission/submission-count",
-        data: { surveyId: surveyId },
-      });
-      console.log(result);
-    };
-    getCount();
+    // const getCount = async () => {
+    //   const result = await axios({
+    //     method: "post",
+    //     url: "http://localhost:8080/api/submission/submission-count",
+    //     data: { surveyId: surveyId },
+    //   });
+    //   console.log(result);
+    // };
+    // getCount();
   }, []);
   const handleLogout = () => {};
   return (
@@ -62,7 +66,16 @@ const Home = () => {
         <AllSurveyTitle>All survey </AllSurveyTitle>
         {allSurvey.map((item, index) => (
           <p>
-            <StyledLink>{item.title}</StyledLink>
+            <SurveyCard
+              onClick={() =>
+                history.push({
+                  pathname: "/submission",
+                  state: { item },
+                })
+              }
+            >
+              {item.title}
+            </SurveyCard>
           </p>
         ))}
       </RowWrapper>

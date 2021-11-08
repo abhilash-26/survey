@@ -39,6 +39,8 @@ function Login() {
         localStorage.setItem("userType", result.data.user.userType);
         if (result.data.user.userType === "C") {
           history.push("/home");
+        } else {
+          history.push("/respondant-home-page");
         }
       } else {
         alert(result.data.message);
